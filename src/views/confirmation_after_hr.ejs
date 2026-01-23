@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>حالة طلبك - السلطان أيوب</title>
+  <link rel="stylesheet" href="/public/css/styles.css" />
+</head>
+<body class="page-home">
+  <!-- Background layers -->
+  <div class="bg-wrap" aria-hidden="true">
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+    <div class="bg-blob blob-3"></div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="home-header" id="homeHeader">
+    <div class="home-header__inner">
+      <a class="brand" href="/">
+        <img class="brand__logo" src="/public/images/logo.png" alt="Sultan Ayoub Logo" />
+        <div class="brand__text">
+          <span class="brand__title">السلطان أيوب</span>
+          <span class="brand__sub">منصة التوظيف لقسم Moderation</span>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <main class="home-main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__grid">
+        <div class="hero__content" data-reveal="up">
+          <h1 class="hero__title">
+            أهلاً <%= user.first_name %> <%= user.last_name %>،
+            <span class="accent">نحن نراجع طلبك الآن!</span>
+          </h1>
+
+          <p class="hero__subtitle">
+            نقوم حالياً بمراجعة الطلبات وسيتم تحديث حالة طلبك في أقرب وقت.
+          </p>
+
+          <div class="hero__cta">
+            <a href="/dashboard" class="btn btn--primary">الذهاب إلى لوحة التحكم</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="home-footer">
+    <div class="container footer__inner">
+      <span>© <%= new Date().getFullYear() %> Sultan Ayoub Restaurants</span>
+      <span class="footer__sep">•</span>
+      <span>Recruitment Platform — Moderation</span>
+    </div>
+  </footer>
+
+  <script src="/js/home.js" defer></script>
+</body>
+</html>

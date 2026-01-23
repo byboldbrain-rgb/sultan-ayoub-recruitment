@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>إنشاء حساب جديد - السلطان أيوب</title>
+  <link rel="stylesheet" href="/public/css/styles.css" />
+</head>
+<body class="page-home"> <!-- تعديل إلى class="page-home" لتتوافق مع الألوان والتنسيقات -->
+  <header class="home-header">
+    <div class="home-header__inner">
+      <a class="brand" href="/">
+        <img class="brand__logo" src="/public/images/logo.png" alt="شعار مطاعم السلطان أيوب" />
+        <div class="brand__text">
+          <span class="brand__title">السلطان أيوب</span>
+          <span class="brand__sub">منصة التوظيف لقسم Moderation</span>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <main class="main center"> <!-- تعديل لتوسيط المحتوى وتوحيد التصميم -->
+    <h1>إنشاء حساب جديد</h1>
+
+    <% if (error) { %>
+      <div class="alert alert-error"><%= error %></div>
+    <% } %>
+
+    <form class="form" action="/signup" method="POST">
+      <div class="form-group">
+        <label>الاسم الأول</label>
+        <input type="text" name="first_name" value="<%= formData.first_name || '' %>" required />
+      </div>
+
+      <div class="form-group">
+        <label>اسم العائلة</label>
+        <input type="text" name="last_name" value="<%= formData.last_name || '' %>" required />
+      </div>
+
+      <div class="form-group">
+        <label>تاريخ الميلاد</label>
+        <input type="date" name="date_of_birth" value="<%= formData.date_of_birth || '' %>" />
+      </div>
+
+      <div class="form-group">
+        <label>الجنس</label>
+        <select name="gender">
+          <option value="">اختر</option>
+          <option value="male" <%= formData.gender === 'male' ? 'selected' : '' %>>ذكر</option>
+          <option value="female" <%= formData.gender === 'female' ? 'selected' : '' %>>أنثى</option>
+          <option value="other" <%= formData.gender === 'other' ? 'selected' : '' %>>آخر</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>رقم الهاتف</label>
+        <input type="tel" name="phone_number" value="<%= formData.phone_number || '' %>" />
+      </div>
+
+      <div class="form-group">
+        <label>البريد الإلكتروني</label>
+        <input type="email" name="email" value="<%= formData.email || '' %>" required />
+      </div>
+
+      <div class="form-group">
+        <label>كلمة السر</label>
+        <input type="password" name="password" required />
+      </div>
+
+      <button class="btn btn-primary" type="submit">تسجيل</button>
+    </form>
+  </main>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>السلطان أيوب | منصة التوظيف (Moderation)</title>
+
+  <link rel="stylesheet" href="/css/styles.css" />
+  <meta name="theme-color" content="#0b0b0d" />
+</head>
+
+<body class="page-home">
+  <!-- Background layers -->
+  <div class="bg-wrap" aria-hidden="true">
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+    <div class="bg-blob blob-3"></div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="home-header" id="homeHeader">
+    <div class="home-header__inner">
+      <a class="brand" href="/">
+        <img class="brand__logo" src="/images/logo.png" alt="Sultan Ayoub Logo" />
+        <div class="brand__text">
+          <span class="brand__title">السلطان أيوب</span>
+          <span class="brand__sub">منصة التوظيف لقسم Moderation</span>
+        </div>
+      </a>
+
+      <!-- Update buttons to "ابدأ الآن" and "لدي حساب بالفعل" -->
+      <nav class="home-nav">
+        <a class="btn btn--primary" href="/signup">ابدأ الآن</a>
+        <a class="btn btn--ghost" href="/login">لدي حساب بالفعل</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="home-main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__grid">
+        <div class="hero__content" data-reveal="up">
+          <h1 class="hero__title">
+            ابدأ طلب التوظيف في
+            <span class="accent">سلسلة مطاعم السلطان أيوب</span>
+            بشكل احترافي وسريع.
+          </h1>
+
+          <p class="hero__subtitle">
+          </p>
+
+          <div class="hero__cta">
+            <!-- Remove signup/login buttons here -->
+          </div>
+        </div>
+
+        <!-- Carousel -->
+        <div class="hero__media" data-reveal="fade" data-delay="80">
+          <div class="carousel" id="bannerCarousel" aria-label="Restaurant banners">
+            <div class="carousel__viewport">
+              <article class="carousel__slide is-active">
+                <img
+                  src="https://i.ibb.co/V0T61kZS/photos-restaurants-photo-urls-4643-original-1200-520-1080x-auto-none.png"
+                  alt="Banner 1"
+                  loading="eager"
+                />
+                <div class="carousel__overlay">
+                  <h3>جودة. سرعة. احترام.</h3>
+                  <p>نبحث عن أشخاص يعرفون قيمة التجربة التي يعيشها العميل.</p>
+                </div>
+              </article>
+
+              <article class="carousel__slide">
+                <img
+                  src="https://i.ibb.co/1GFWp932/375219451-688770553277447-4002179734677702620-n.jpg"
+                  alt="Banner 2"
+                  loading="lazy"
+                />
+                <div class="carousel__overlay">
+                  <h3>Moderation بمعايير عالمية</h3>
+                  <p>ردود دقيقة، تعامل ذكي، وتنظيم ممتاز على السوشيال.</p>
+                </div>
+              </article>
+
+              <article class="carousel__slide">
+                <img
+                  src="https://i.ibb.co/VYVv7Wh2/393915271-715273927293776-4971067825453007644-n.png"
+                  alt="Banner 3"
+                  loading="lazy"
+                />
+                <div class="carousel__overlay">
+                  <h3>قدم الآن</h3>
+                  <p>سجّل، املأ الاستمارة، وسيتم مراجعة طلبك قريباً.</p>
+                </div>
+              </article>
+            </div>
+
+            <div class="carousel__controls">
+              <button class="icon-btn" type="button" data-action="prev" aria-label="Previous slide">
+                <span aria-hidden="true">‹</span>
+              </button>
+
+              <div class="carousel__dots" role="tablist" aria-label="Slides">
+                <button class="dot-btn is-active" type="button" data-slide="0" aria-label="Slide 1"></button>
+                <button class="dot-btn" type="button" data-slide="1" aria-label="Slide 2"></button>
+                <button class="dot-btn" type="button" data-slide="2" aria-label="Slide 3"></button>
+              </div>
+
+              <button class="icon-btn" type="button" data-action="next" aria-label="Next slide">
+                <span aria-hidden="true">›</span>
+              </button>
+            </div>
+
+            <div class="carousel__shine" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Remove the "How it works" section -->
+  </main>
+
+  <footer class="home-footer">
+    <div class="container footer__inner">
+      <span>© <%= new Date().getFullYear() %> Sultan Ayoub Restaurants</span>
+      <span class="footer__sep">•</span>
+      <span>Recruitment Platform — Moderation</span>
+    </div>
+  </footer>
+
+  <script src="/js/home.js" defer></script>
+</body>
+</html>

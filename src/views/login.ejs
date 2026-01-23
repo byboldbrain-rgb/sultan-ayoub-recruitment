@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>تسجيل الدخول - السلطان أيوب</title>
+  <link rel="stylesheet" href="/public/css/styles.css" />
+</head>
+<body class="page">
+<header class="header">
+  <div class="logo">
+    <img src="/public/images/logo.png" alt="شعار مطاعم السلطان أيوب" />
+  </div>
+</header>
+
+<main class="main">
+  <h1>تسجيل الدخول</h1>
+
+  <% if (error) { %>
+    <div class="alert alert-error"><%= error %></div>
+  <% } %>
+
+  <form class="form" action="/login" method="POST">
+    <div class="form-group">
+      <label>البريد الإلكتروني</label>
+      <input type="email" name="email" required />
+    </div>
+
+    <div class="form-group">
+      <label>كلمة المرور</label>
+      <input type="password" name="password" required />
+    </div>
+
+    <button class="btn btn-primary" type="submit">دخول</button>
+  </form>
+</main>
+</body>
+</html>
