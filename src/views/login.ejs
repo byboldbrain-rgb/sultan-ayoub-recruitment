@@ -1,39 +1,361 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <title>تسجيل الدخول - السلطان أيوب</title>
-  <link rel="icon" href="/public/images/logo.png" type="image/png">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Orange Egypt | Login</title>
 
-  <link rel="stylesheet" href="/public/css/styles.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --orange:#ff7900;
+  --black:#000;
+  --white:#fff;
+  --light-gray:#ededed;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  background:#f4f4f4;
+  font-family:'Cairo',sans-serif;
+}
+
+/* ================= HEADER ================= */
+
+.home-header{
+  background:#000;
+  height:64px;
+  display:flex;
+  align-items:center;
+}
+
+.home-header__inner{
+  max-width:1400px;
+  width:100%;
+  margin:auto;
+  padding:0 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand img{ height:36px; }
+
+/* ================= LOGIN SECTION ================= */
+
+.login-section{
+  padding:100px 20px;
+}
+
+.login-card{
+  width:100%;
+  max-width:450px;
+  background:#fff;
+  padding:50px 40px;
+  border-radius:16px;
+  box-shadow:0 15px 50px rgba(0,0,0,0.15);
+  margin:0 auto;
+  position:relative;
+}
+
+.login-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  right:0;
+  left:0;
+  height:6px;
+  background:var(--orange);
+  border-radius:16px 16px 0 0;
+}
+
+.login-title{
+  text-align:center;
+  font-size:26px;
+  font-weight:900;
+  margin-bottom:35px;
+}
+
+.form-group{
+  margin-bottom:20px;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:8px;
+  font-weight:600;
+  font-size:14px;
+}
+
+.form-group input{
+  width:100%;
+  padding:12px 14px;
+  border:1px solid #ddd;
+  border-radius:8px;
+  font-family:'Cairo',sans-serif;
+  font-size:14px;
+  transition:.3s;
+}
+
+.form-group input:focus{
+  border-color:var(--orange);
+  outline:none;
+  box-shadow:0 0 0 2px rgba(255,121,0,.2);
+}
+
+.login-btn{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:8px;
+  background:var(--orange);
+  color:#000;
+  font-weight:800;
+  font-size:16px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.login-btn:hover{
+  background:#e56d00;
+}
+
+.signup-link{
+  text-align:center;
+  margin-top:20px;
+  font-size:14px;
+}
+
+.signup-link a{
+  color:var(--orange);
+  text-decoration:none;
+  font-weight:600;
+}
+
+.signup-link a:hover{
+  text-decoration:underline;
+}
+
+.error-box{
+  background:#ffe6e6;
+  color:#c00000;
+  padding:10px 15px;
+  border-radius:8px;
+  margin-bottom:20px;
+  font-size:13px;
+  text-align:center;
+}
+
+/* ================= SOCIAL ================= */
+
+.social-section{
+  background:#000;
+  padding:40px 0;
+  border-top:1px solid #222;
+}
+
+.social-inner{
+  max-width:1400px;
+  margin:auto;
+  padding:0 40px;
+  display:flex;
+  align-items:center;
+  gap:30px;
+  direction:ltr;
+}
+
+.social-title{
+  color:#fff;
+  font-weight:600;
+  font-size:16px;
+}
+
+.social-icons{
+  display:flex;
+  gap:20px;
+}
+
+.social-icons a{
+  width:46px;
+  height:46px;
+  border:2px solid #fff;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.social-icons a svg{
+  width:20px;
+  height:20px;
+  fill:#fff;
+}
+
+.social-icons a:hover{
+  border-color:var(--orange);
+}
+
+.social-icons a:hover svg{
+  fill:var(--orange);
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+  background:#000;
+  padding:70px 0;
+  border-top:1px solid #222;
+}
+
+.footer-inner{
+  max-width:1400px;
+  margin:auto;
+  padding:0 40px;
+  display:flex;
+  gap:120px;
+  direction:ltr;
+}
+
+.footer-column{
+  flex:1;
+}
+
+.footer-column h4{
+  color:#fff;
+  font-size:18px;
+  font-weight:700;
+  margin-bottom:25px;
+}
+
+.footer-column a{
+  display:block;
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  margin-bottom:14px;
+  transition:.2s;
+}
+
+.footer-column a:hover{
+  color:var(--orange);
+}
+
+@media(max-width:768px){
+  .footer-inner{
+    flex-direction:column;
+    gap:40px;
+  }
+
+  .social-inner{
+    flex-direction:column;
+    gap:20px;
+  }
+}
+</style>
 </head>
-<body class="page">
-<header class="header">
-  <div class="logo">
-    <img src="/public/images/logo.png" alt="شعار مطاعم السلطان أيوب" />
+
+<body>
+
+<header class="home-header">
+  <div class="home-header__inner">
+    <a class="brand" href="/">
+      <img src="https://i.ibb.co/RTFb3J9D/Orange-Egypt-Logo-wine.png">
+    </a>
   </div>
 </header>
 
-<main class="main">
-  <h1>تسجيل الدخول</h1>
+<section class="login-section">
+  <div class="login-card">
 
-  <% if (error) { %>
-    <div class="alert alert-error"><%= error %></div>
-  <% } %>
+    <div class="login-title">تسجيل الدخول</div>
 
-  <form class="form" action="/login" method="POST">
-    <div class="form-group">
-      <label>البريد الإلكتروني</label>
-      <input type="email" name="email" required />
+    <% if (error) { %>
+      <div class="error-box"><%= error %></div>
+    <% } %>
+
+    <form action="/login" method="POST">
+
+      <div class="form-group">
+        <label>البريد الإلكتروني</label>
+        <input type="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label>كلمة المرور</label>
+        <input type="password" name="password" required>
+      </div>
+
+      <button class="login-btn" type="submit">
+        دخول
+      </button>
+
+    </form>
+
+    <div class="signup-link">
+      ليس لديك حساب؟ <a href="/signup?type=influencer">إنشاء حساب جديد</a>
     </div>
 
-    <div class="form-group">
-      <label>كلمة المرور</label>
-      <input type="password" name="password" required />
-    </div>
+  </div>
+</section>
 
-    <button class="btn btn-primary" type="submit">دخول</button>
-  </form>
-</main>
+<!-- FOLLOW US -->
+<section class="social-section">
+  <div class="social-inner">
+    <div class="social-title">Follow us</div>
+    <div class="social-icons">
+
+      <a href="https://www.facebook.com/OrangeEgyptOfficial" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v6h3v-6h2.5l.5-3H13v-2c0-.6.4-1 1-1z"/></svg>
+      </a>
+
+      <a href="https://x.com/Orange_Egypt" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M18 2h3l-7 8 8 12h-6l-5-7-6 7H2l8-9-8-11h6l4 6z"/></svg>
+      </a>
+
+      <a href="https://www.linkedin.com/company/orange-egypt/" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M4 3a2 2 0 100 4 2 2 0 000-4zM3 8h2v13H3zM8 8h3v2h.1c.4-.8 1.5-2 3.4-2 3.6 0 4.2 2.4 4.2 5.4V21h-3v-6c0-1.4 0-3-2-3s-2.3 1.5-2.3 2.9V21H8z"/></svg>
+      </a>
+
+      <a href="https://www.youtube.com/OrangeEgypt" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M23 7s-.2-1.7-.8-2.4c-.8-.9-1.7-.9-2.1-1C17.2 3 12 3 12 3h-.1S6.8 3 3.9 3.6c-.4.1-1.3.1-2.1 1C1.2 5.3 1 7 1 7S1 8.7 1 10.4v1.2C1 13.3 1 15 1 15s.2 1.7.8 2.4c.8.9 1.9.9 2.4 1C6.8 18.9 12 19 12 19s5.2 0 8.1-.6c.4-.1 1.3-.1 2.1-1 .6-.7.8-2.4.8-2.4s0-1.7 0-3.4v-1.2C23 8.7 23 7 23 7zM10 14V8l6 3-6 3z"/></svg>
+      </a>
+
+      <a href="https://www.instagram.com/Orange_Egypt" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M7 2C4 2 2 4 2 7v10c0 3 2 5 5 5h10c3 0 5-2 5-5V7c0-3-2-5-5-5H7zm5 5a5 5 0 110 10 5 5 0 010-10zm6-1a1 1 0 110 2 1 1 0 010-2z"/></svg>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="footer">
+  <div class="footer-inner">
+    <div class="footer-column">
+      <h4>Business</h4>
+      <a href="#">Business plans</a>
+      <a href="#">Business solutions</a>
+      <a href="#">SPECIAL for Business</a>
+    </div>
+    <div class="footer-column">
+      <h4>Shop</h4>
+      <a href="#">Offers</a>
+      <a href="#">Internet</a>
+      <a href="#">Services</a>
+    </div>
+    <div class="footer-column">
+      <h4>Quick Links</h4>
+      <a href="#">About</a>
+      <a href="#">Help</a>
+      <a href="#">Blog</a>
+    </div>
+  </div>
+</section>
+
 </body>
 </html>

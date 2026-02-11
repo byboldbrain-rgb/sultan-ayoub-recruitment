@@ -1,134 +1,354 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>السلطان أيوب | منصة التوظيف (Moderation)</title>
-  <link rel="icon" href="/public/images/logo.png" type="image/png">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Orange Egypt | Campaigns</title>
 
-  <link rel="stylesheet" href="/css/styles.css" />
-  <meta name="theme-color" content="#0b0b0d" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --orange:#ff7900;
+  --black:#000;
+  --white:#fff;
+  --light-gray:#ededed;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  background:#ffffff;
+  color:#000;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+/* ================= HEADER ================= */
+
+.home-header{
+  background:#000;
+  height:64px;
+  display:flex;
+  align-items:center;
+}
+
+.home-header__inner{
+  max-width:1400px;
+  width:100%;
+  margin:auto;
+  padding:0 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand img{ height:36px; }
+
+.home-nav{
+  display:flex;
+  gap:32px;
+}
+
+.nav-link{
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+}
+
+.nav-link:hover{ color:var(--orange); }
+
+/* ================= SLIDER ================= */
+
+.campaigns{
+  max-width:1400px;
+  margin:60px auto;
+  padding:0 24px;
+}
+
+.campaigns__title{
+  font-size:32px;
+  font-weight:900;
+  margin-bottom:24px;
+  text-align:right;
+  font-family:'Cairo',sans-serif;
+}
+
+.slider{
+  position:relative;
+  overflow:hidden;
+  direction:ltr;
+}
+
+.slider-track{
+  display:flex;
+  transition:transform .5s ease;
+}
+
+.campaign-card{
+  min-width:100%;
+  background:#111;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.campaign-card img{
+  width:100%;
+  height:600px;
+  object-fit:contain;
+  background:#000;
+  display:block;
+}
+
+.slider-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  border:none;
+  cursor:pointer;
+  background:var(--orange);
+  color:#000;
+  font-size:22px;
+  font-weight:bold;
+  z-index:10;
+}
+
+.slider-btn.prev{ left:20px; }
+.slider-btn.next{ right:20px; }
+
+/* ================= SOCIAL ================= */
+
+.social-section{
+  background:#000;
+  padding:40px 0;
+  border-top:1px solid #222;
+}
+
+.social-inner{
+  max-width:1400px;
+  margin:auto;
+  padding:0 40px;
+  display:flex;
+  align-items:center;
+  gap:30px;
+  direction:ltr;
+}
+
+.social-title{
+  color:#fff;
+  font-weight:600;
+  font-size:16px;
+}
+
+.social-icons{
+  display:flex;
+  gap:20px;
+}
+
+.social-icons a{
+  width:46px;
+  height:46px;
+  border:2px solid #fff;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.social-icons a svg{
+  width:20px;
+  height:20px;
+  fill:#fff;
+}
+
+.social-icons a:hover{
+  border-color:var(--orange);
+}
+
+.social-icons a:hover svg{
+  fill:var(--orange);
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+  background:#000;
+  padding:70px 0;
+  border-top:1px solid #222;
+}
+
+.footer-inner{
+  max-width:1400px;
+  margin:auto;
+  padding:0 40px;
+  display:flex;
+  gap:120px;
+  direction:ltr;
+}
+
+.footer-column{
+  flex:1;
+}
+
+.footer-column h4{
+  color:#fff;
+  font-size:18px;
+  font-weight:700;
+  margin-bottom:25px;
+}
+
+.footer-column a{
+  display:block;
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  margin-bottom:14px;
+  transition:.2s;
+}
+
+.footer-column a:hover{
+  color:var(--orange);
+}
+
+@media(max-width:768px){
+  .campaign-card img{ height:300px; }
+
+  .footer-inner{
+    flex-direction:column;
+    gap:40px;
+  }
+
+  .social-inner{
+    flex-direction:column;
+    gap:20px;
+  }
+}
+</style>
 </head>
 
-<body class="page-home">
-  <!-- Background layers -->
-  <div class="bg-wrap" aria-hidden="true">
-    <div class="bg-blob blob-1"></div>
-    <div class="bg-blob blob-2"></div>
-    <div class="bg-blob blob-3"></div>
-    <div class="bg-noise"></div>
+<body>
+
+<header class="home-header">
+  <div class="home-header__inner">
+    <a class="brand" href="/">
+      <img src="https://i.ibb.co/RTFb3J9D/Orange-Egypt-Logo-wine.png">
+    </a>
+
+    <nav class="home-nav">
+      <a class="nav-link" href="/signup?type=influencer">بوابة تسجيل المؤثرين</a>
+      <a class="nav-link" href="/signup?type=entrepreneur">بوابة تسجيل رواد الأعمال</a>
+      <a class="nav-link" href="/login">تسجيل الدخول</a>
+    </nav>
+
+
   </div>
+</header>
 
-  <!-- Header -->
-  <header class="home-header" id="homeHeader">
-    <div class="home-header__inner">
-      <a class="brand" href="/">
-        <img class="brand__logo" src="/images/logo.png" alt="Sultan Ayoub Logo" />
-        <div class="brand__text">
-          <span class="brand__title">السلطان أيوب</span>
-          <span class="brand__sub">منصة التوظيف لقسم Moderation</span>
-        </div>
+<main>
+
+<section class="campaigns">
+  <div class="campaigns__title">إعلانات Orange السابقة</div>
+  <div class="slider">
+    <button class="slider-btn prev" id="prevBtn">‹</button>
+    <button class="slider-btn next" id="nextBtn">›</button>
+    <div class="slider-track" id="sliderTrack">
+      <div class="campaign-card"><img src="https://i.ibb.co/QxpM98s/IMG-20251120-WA0073-780x470.jpg"></div>
+      <div class="campaign-card"><img src="https://i.ibb.co/r22PX3cj/995.jpg"></div>
+      <div class="campaign-card"><img src="https://i.ibb.co/bMXT3jc5/hq720.jpg"></div>
+      <div class="campaign-card"><img src="https://i.ibb.co/gFgMbkPP/IMG-20240314-WA0022-1-scaled.jpg"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOLLOW US -->
+<section class="social-section">
+  <div class="social-inner">
+    <div class="social-title">Follow us</div>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/OrangeEgyptOfficial" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v6h3v-6h2.5l.5-3H13v-2c0-.6.4-1 1-1z"/></svg>
       </a>
-
-      <!-- Update buttons to "ابدأ الآن" and "لدي حساب بالفعل" -->
-      <nav class="home-nav">
-        <a class="btn btn--primary" href="/signup">ابدأ الآن</a>
-        <a class="btn btn--ghost" href="/login">لدي حساب بالفعل</a>
-      </nav>
+      <a href="https://x.com/Orange_Egypt" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M18 2h3l-7 8 8 12h-6l-5-7-6 7H2l8-9-8-11h6l4 6z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/company/orange-egypt/" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M4 3a2 2 0 100 4 2 2 0 000-4zM3 8h2v13H3zM8 8h3v2h.1c.4-.8 1.5-2 3.4-2 3.6 0 4.2 2.4 4.2 5.4V21h-3v-6c0-1.4 0-3-2-3s-2.3 1.5-2.3 2.9V21H8z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/OrangeEgypt" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M23 7s-.2-1.7-.8-2.4c-.8-.9-1.7-.9-2.1-1C17.2 3 12 3 12 3h-.1S6.8 3 3.9 3.6c-.4.1-1.3.1-2.1 1C1.2 5.3 1 7 1 7S1 8.7 1 10.4v1.2C1 13.3 1 15 1 15s.2 1.7.8 2.4c.8.9 1.9.9 2.4 1C6.8 18.9 12 19 12 19s5.2 0 8.1-.6c.4-.1 1.3-.1 2.1-1 .6-.7.8-2.4.8-2.4s0-1.7 0-3.4v-1.2C23 8.7 23 7 23 7zM10 14V8l6 3-6 3z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/Orange_Egypt" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M7 2C4 2 2 4 2 7v10c0 3 2 5 5 5h10c3 0 5-2 5-5V7c0-3-2-5-5-5H7zm5 5a5 5 0 110 10 5 5 0 010-10zm6-1a1 1 0 110 2 1 1 0 010-2z"/></svg>
+      </a>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main class="home-main">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero__grid">
-        <div class="hero__content" data-reveal="up">
-          <h1 class="hero__title">
-            انضم إلى فريق عمل    
-            <span class="accent">سلسلة مطاعم السلطان أيوب</span>
-          </h1>
+<!-- FOOTER LINKS -->
+<section class="footer">
+  <div class="footer-inner">
 
-          <p class="hero__subtitle">
-          </p>
-
-          <div class="hero__cta">
-            <!-- Remove signup/login buttons here -->
-          </div>
-        </div>
-
-        <!-- Carousel -->
-        <div class="hero__media" data-reveal="fade" data-delay="80">
-          <div class="carousel" id="bannerCarousel" aria-label="Restaurant banners">
-            <div class="carousel__viewport">
-              <article class="carousel__slide is-active">
-                <img
-                  src="https://i.ibb.co/V0T61kZS/photos-restaurants-photo-urls-4643-original-1200-520-1080x-auto-none.png"
-                  alt="Banner 1"
-                  loading="eager"
-                />
-                <div class="carousel__overlay">
-                  <h3>جودة. سرعة. احترام.</h3>
-                  <p>نبحث عن أشخاص يعرفون قيمة التجربة التي يعيشها العميل.</p>
-                </div>
-              </article>
-
-              <article class="carousel__slide">
-                <img
-                  src="https://i.ibb.co/1GFWp932/375219451-688770553277447-4002179734677702620-n.jpg"
-                  alt="Banner 2"
-                  loading="lazy"
-                />
-                <div class="carousel__overlay">
-                  <h3>Moderation بمعايير عالمية</h3>
-                  <p>ردود دقيقة، تعامل ذكي، وتنظيم ممتاز على السوشيال.</p>
-                </div>
-              </article>
-
-              <article class="carousel__slide">
-                <img
-                  src="https://i.ibb.co/VYVv7Wh2/393915271-715273927293776-4971067825453007644-n.png"
-                  alt="Banner 3"
-                  loading="lazy"
-                />
-                <div class="carousel__overlay">
-                  <h3>قدم الآن</h3>
-                  <p>سجّل، املأ الاستمارة، وسيتم مراجعة طلبك قريباً.</p>
-                </div>
-              </article>
-            </div>
-
-            <div class="carousel__controls">
-              <button class="icon-btn" type="button" data-action="prev" aria-label="Previous slide">
-                <span aria-hidden="true">‹</span>
-              </button>
-
-              <div class="carousel__dots" role="tablist" aria-label="Slides">
-                <button class="dot-btn is-active" type="button" data-slide="0" aria-label="Slide 1"></button>
-                <button class="dot-btn" type="button" data-slide="1" aria-label="Slide 2"></button>
-                <button class="dot-btn" type="button" data-slide="2" aria-label="Slide 3"></button>
-              </div>
-
-              <button class="icon-btn" type="button" data-action="next" aria-label="Next slide">
-                <span aria-hidden="true">›</span>
-              </button>
-            </div>
-
-            <div class="carousel__shine" aria-hidden="true"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Remove the "How it works" section -->
-  </main>
-
-  <footer class="home-footer">
-    <div class="container footer__inner">
-      <span>© <%= new Date().getFullYear() %> Sultan Ayoub Restaurants</span>
-      <span class="footer__sep">•</span>
-      <span>Recruitment Platform — Moderation</span>
+    <div class="footer-column">
+      <h4>Business</h4>
+      <a href="https://www.orange.eg/en/business/business-plans/">Business plans</a>
+      <a href="https://www.orange.eg/en/business/business-solutions/">Business solutions</a>
+      <a href="https://www.orange.eg/en/business/special-business/">SPECIAL for Business</a>
+      <a href="https://www.orange.eg/en/business/payment-facilities">Services and payments</a>
+      <a href="https://shop.orange.eg/en/mobiles-and-devices">Handsets and Devices</a>
     </div>
-  </footer>
 
-  <script src="/js/home.js" defer></script>
+    <div class="footer-column">
+      <h4>Shop</h4>
+      <a href="https://www.orange.eg/en/offers-promotions/">Offers and promotions</a>
+      <a href="https://www.orange.eg/en/internet/">Internet</a>
+      <a href="https://shop.orange.eg/en/mobiles-and-devices">Handsets and Devices</a>
+      <a href="https://www.orange.eg/en/services/">Services</a>
+      <a href="https://www.orange.eg/en/Tariff-Plans/">Tariff plans</a>
+      <a href="https://www.orange.eg/en/entertainment/">Entertainment</a>
+    </div>
+
+    <div class="footer-column">
+      <h4>Quick Links</h4>
+      <a href="https://www.orange.eg/en/about/">About Orange Egypt</a>
+      <a href="https://www.orange.eg/en/myaccount/login?ReturnUrl=/en/myaccount/">My account</a>
+      <a href="https://www.orange.eg/en/about/investors/">Investor relations</a>
+      <a href="https://www.orange.eg/en/help/">Help</a>
+      <a href="https://www.orange.eg/en/about/blog">Blog</a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+let currentSlide = 0;
+const track = document.getElementById('sliderTrack');
+const totalSlides = track.children.length;
+
+function updateSlide(){
+  track.style.transform = "translateX(-" + (currentSlide * 100) + "%)";
+}
+
+document.getElementById('nextBtn').addEventListener('click', function(){
+  currentSlide = (currentSlide + 1) % totalSlides;
+  updateSlide();
+});
+
+document.getElementById('prevBtn').addEventListener('click', function(){
+  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+  updateSlide();
+});
+
+updateSlide();
+</script>
+
 </body>
 </html>

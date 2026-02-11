@@ -1,63 +1,244 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <title>حالة طلبك - السلطان أيوب</title>
-  <link rel="icon" href="/public/images/logo.png" type="image/png">
-  <link rel="stylesheet" href="/public/css/styles.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Orange Egypt | Confirmation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --orange:#ff7900;
+  --black:#000;
+  --white:#fff;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  background:#ffffff;
+  font-family:'Cairo',sans-serif;
+}
+
+/* HEADER */
+
+.home-header{
+  background:#000;
+  height:64px;
+  display:flex;
+  align-items:center;
+}
+
+.home-header__inner{
+  max-width:1400px;
+  width:100%;
+  margin:auto;
+  padding:0 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand img{ height:36px; }
+
+/* MAIN SECTION */
+
+.confirm-section{
+  padding:120px 20px;
+  display:flex;
+  justify-content:center;
+}
+
+.confirm-card{
+  width:100%;
+  max-width:700px;
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.15);
+  padding:60px 50px;
+  text-align:center;
+  position:relative;
+}
+
+.confirm-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  right:0;
+  left:0;
+  height:6px;
+  background:var(--orange);
+  border-radius:16px 16px 0 0;
+}
+
+.confirm-icon{
+  font-size:60px;
+  color:var(--orange);
+  margin-bottom:25px;
+}
+
+.confirm-title{
+  font-size:28px;
+  font-weight:900;
+  margin-bottom:20px;
+}
+
+.confirm-text{
+  font-size:16px;
+  line-height:1.8;
+  color:#444;
+  margin-bottom:40px;
+}
+
+.button-group{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.main-btn{
+  padding:14px 28px;
+  border:none;
+  border-radius:8px;
+  font-weight:800;
+  font-size:14px;
+  cursor:pointer;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.orange-btn{
+  background:var(--orange);
+  color:#000;
+}
+
+.orange-btn:hover{
+  background:#e56d00;
+}
+
+.black-btn{
+  background:#000;
+  color:#fff;
+}
+
+.black-btn:hover{
+  background:#222;
+}
+
+/* FOOTER */
+
+.footer{
+  background:#000;
+  padding:70px 0;
+  border-top:1px solid #222;
+  margin-top:80px;
+}
+
+.footer-inner{
+  max-width:1400px;
+  margin:auto;
+  padding:0 40px;
+  display:flex;
+  gap:120px;
+  direction:ltr;
+}
+
+.footer-column{
+  flex:1;
+}
+
+.footer-column h4{
+  color:#fff;
+  font-size:18px;
+  font-weight:700;
+  margin-bottom:25px;
+}
+
+.footer-column a{
+  display:block;
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  margin-bottom:14px;
+  transition:.2s;
+}
+
+.footer-column a:hover{
+  color:var(--orange);
+}
+
+@media(max-width:768px){
+  .footer-inner{
+    flex-direction:column;
+    gap:40px;
+  }
+}
+</style>
 </head>
-<body class="page-home">
-  <!-- Background layers -->
-  <div class="bg-wrap" aria-hidden="true">
-    <div class="bg-blob blob-1"></div>
-    <div class="bg-blob blob-2"></div>
-    <div class="bg-blob blob-3"></div>
-    <div class="bg-noise"></div>
+
+<body>
+
+<header class="home-header">
+  <div class="home-header__inner">
+    <a class="brand" href="/">
+      <img src="https://i.ibb.co/RTFb3J9D/Orange-Egypt-Logo-wine.png">
+    </a>
   </div>
+</header>
 
-  <!-- Header -->
-  <header class="home-header" id="homeHeader">
-    <div class="home-header__inner">
-      <a class="brand" href="/">
-        <img class="brand__logo" src="/public/images/logo.png" alt="Sultan Ayoub Logo" />
-        <div class="brand__text">
-          <span class="brand__title">السلطان أيوب</span>
-          <span class="brand__sub">منصة التوظيف لقسم Moderation</span>
-        </div>
-      </a>
+<section class="confirm-section">
+  <div class="confirm-card">
+
+    <div class="confirm-icon">✔</div>
+
+    <div class="confirm-title">
+      تم استلام طلبك بنجاح 🎉
     </div>
-  </header>
 
-  <main class="home-main">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero__grid">
-        <div class="hero__content" data-reveal="up">
-          <h1 class="hero__title">
-            أهلاً <%= user.first_name %> <%= user.last_name %>،
-            <span class="accent">نحن نراجع طلبك الآن!</span>
-          </h1>
-
-          <p class="hero__subtitle">
-            نقوم حالياً بمراجعة الطلبات وسيتم تحديث حالة طلبك في أقرب وقت.
-          </p>
-
-          <div class="hero__cta">
-            <a href="/dashboard" class="btn btn--primary">الذهاب إلى لوحة التحكم</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="home-footer">
-    <div class="container footer__inner">
-      <span>© <%= new Date().getFullYear() %> Sultan Ayoub Restaurants</span>
-      <span class="footer__sep">•</span>
-      <span>Recruitment Platform — Moderation</span>
+    <div class="confirm-text">
+      شكرًا لك <strong><%= user.first_name %></strong> على التقديم.<br>
+      فريق Orange سيقوم بمراجعة طلبك بعناية،<br>
+      وفي حالة القبول سيتم التواصل معك قريبًا.
     </div>
-  </footer>
 
-  <script src="/js/home.js" defer></script>
+    <div class="button-group">
+      <a href="/" class="main-btn orange-btn">العودة للصفحة الرئيسية</a>
+      <a href="/logout" class="main-btn black-btn">تسجيل الخروج</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="footer">
+  <div class="footer-inner">
+
+    <div class="footer-column">
+      <h4>Business</h4>
+      <a href="#">Business plans</a>
+      <a href="#">Business solutions</a>
+      <a href="#">SPECIAL for Business</a>
+    </div>
+
+    <div class="footer-column">
+      <h4>Shop</h4>
+      <a href="#">Offers and promotions</a>
+      <a href="#">Internet</a>
+      <a href="#">Services</a>
+    </div>
+
+    <div class="footer-column">
+      <h4>Quick Links</h4>
+      <a href="#">About Orange Egypt</a>
+      <a href="#">Investor relations</a>
+      <a href="#">Help</a>
+    </div>
+
+  </div>
+</section>
+
 </body>
 </html>

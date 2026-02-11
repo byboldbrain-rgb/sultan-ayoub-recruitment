@@ -1,95 +1,272 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <title>نموذج HR - السلطان أيوب</title>
-  <link rel="icon" href="/public/images/logo.png" type="image/png">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Orange Egypt | HR Form</title>
 
-  <link rel="stylesheet" href="/public/css/styles.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --orange:#ff7900;
+  --black:#000;
+  --white:#fff;
+  --light-gray:#ededed;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  background:#f4f4f4;
+  font-family:'Cairo',sans-serif;
+}
+
+/* HEADER */
+
+.home-header{
+  background:#000;
+  height:64px;
+  display:flex;
+  align-items:center;
+}
+
+.home-header__inner{
+  max-width:1400px;
+  width:100%;
+  margin:auto;
+  padding:0 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand img{ height:36px; }
+
+/* FORM SECTION */
+
+.hr-section{
+  padding:80px 20px;
+}
+
+.hr-card{
+  width:100%;
+  max-width:750px;
+  background:#fff;
+  padding:50px 45px;
+  border-radius:16px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.15);
+  margin:0 auto;
+  position:relative;
+}
+
+.hr-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  right:0;
+  left:0;
+  height:6px;
+  background:var(--orange);
+  border-radius:16px 16px 0 0;
+}
+
+.hr-title{
+  text-align:center;
+  font-size:28px;
+  font-weight:900;
+  margin-bottom:40px;
+}
+
+.form-group{
+  margin-bottom:25px;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:8px;
+  font-weight:700;
+  font-size:14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  padding:12px 14px;
+  border:1px solid #ddd;
+  border-radius:8px;
+  font-family:'Cairo',sans-serif;
+  font-size:14px;
+  transition:.3s;
+}
+
+.form-group textarea{
+  resize:none;
+  min-height:90px;
+  line-height:1.6;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  border-color:var(--orange);
+  outline:none;
+  box-shadow:0 0 0 2px rgba(255,121,0,.2);
+}
+
+.submit-btn{
+  width:100%;
+  padding:15px;
+  border:none;
+  border-radius:8px;
+  background:var(--orange);
+  color:#000;
+  font-weight:900;
+  font-size:16px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.submit-btn:hover{
+  background:#e56d00;
+}
+
+.error-box{
+  background:#ffe6e6;
+  color:#c00000;
+  padding:10px 15px;
+  border-radius:8px;
+  margin-bottom:20px;
+  font-size:13px;
+  text-align:center;
+}
+
+/* FOOTER */
+
+.footer{
+  background:#000;
+  padding:70px 0;
+  border-top:1px solid #222;
+}
+
+.footer-inner{
+  max-width:1400px;
+  margin:auto;
+  padding:0 40px;
+}
+
+.footer-column h4{
+  color:#fff;
+}
+
+.footer-column a{
+  display:block;
+  color:#fff;
+  text-decoration:none;
+  margin-bottom:10px;
+}
+
+</style>
 </head>
-<body class="page-home">
-  <!-- Header -->
-  <header class="home-header">
-    <div class="logo">
-      <img src="/public/images/logo.png" alt="شعار مطاعم السلطان أيوب" />
+
+<body>
+
+<header class="home-header">
+  <div class="home-header__inner">
+    <a class="brand" href="/">
+      <img src="https://i.ibb.co/RTFb3J9D/Orange-Egypt-Logo-wine.png">
+    </a>
+  </div>
+</header>
+
+<section class="hr-section">
+  <div class="hr-card">
+
+    <div class="hr-title">استمارة التقديم</div>
+
+    <% if (error) { %>
+      <div class="error-box"><%= error %></div>
+    <% } %>
+
+    <form action="/hr/form" method="POST">
+
+      <div class="form-group">
+        <label>1) الاسم الكامل</label>
+        <input type="text" name="full_name" required>
+      </div>
+
+      <div class="form-group">
+        <label>2) السن</label>
+        <input type="number" name="age" required>
+      </div>
+
+      <div class="form-group">
+        <label>3) المجال</label>
+        <select name="field" required>
+          <option value="">اختر المجال</option>
+          <option value="entrepreneur">رائد أعمال</option>
+          <option value="creator">صانع محتوي</option>
+          <option value="both">الاثنين</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>4) لينكات المنصات (كل لينك في سطر)</label>
+        <textarea name="platform_links" placeholder="Instagram&#10;TikTok&#10;YouTube"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>5) عدد المتابعين لكل منصة (كل منصة في سطر)</label>
+        <textarea name="followers_count" placeholder="Instagram - 50K&#10;TikTok - 120K"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>رقم الواتساب الشخصي للتواصل</label>
+        <input type="tel" name="whatsapp_number" placeholder="01xxxxxxxxx" required>
+      </div>
+
+      <div class="form-group">
+        <label>6) احكي في 3 سطور: إيه الحاجة اللي تميزك عن غيرك؟</label>
+        <textarea name="unique_value" maxlength="300"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>7) لو هنختارك لإعلان تلفزيوني… ليه أنت؟ (جملة واحدة)</label>
+        <textarea name="tv_pitch" maxlength="150"></textarea>
+      </div>
+
+      <button class="submit-btn" type="submit">
+        إرسال الطلب
+      </button>
+
+    </form>
+
+  </div>
+</section>
+
+<section class="footer">
+  <div class="footer-inner">
+    <div class="footer-column">
+      <h4>Orange Egypt</h4>
+      <a href="#">About</a>
+      <a href="#">Careers</a>
+      <a href="#">Support</a>
     </div>
-  </header>
+  </div>
+</section>
 
-  <!-- Main Content -->
-  <main class="main">
-    <div class="hero">
-      <h1>نموذج HR لوظيفة Moderation</h1>
+<script>
+// Auto resize textarea
+document.querySelectorAll("textarea").forEach(textarea => {
+  textarea.addEventListener("input", function () {
+    this.style.height = "auto";
+    this.style.height = (this.scrollHeight) + "px";
+  });
+});
+</script>
 
-      <% if (error) { %>
-        <div class="alert alert-error"><%= error %></div>
-      <% } %>
-
-      <form class="form" action="/hr/form" method="POST" enctype="multipart/form-data">
-        <div class="form-group">
-          <label>كيف تتعامل مع استفسارات العملاء عبر وسائل التواصل الاجتماعي بطريقة سريعة وفعالة؟</label>
-          <textarea name="question_1" required></textarea>
-        </div>
-
-        <div class="form-group">
-          <label>هل لديك خبرة سابقة في التعامل مع شكاوى العملاء؟ إذا كانت الإجابة بنعم، كيف تتعامل مع العملاء الغاضبين؟</label>
-          <textarea name="question_2" required></textarea>
-        </div>
-
-        <div class="form-group">
-          <label>كيف تضمن دقة المعلومات التي تقدمها للعملاء على منصات التواصل الاجتماعي؟</label>
-          <textarea name="question_3" required></textarea>
-        </div>
-
-        <div class="form-group">
-          <label>كيف يمكنك التعامل مع طلبات أو استفسارات متعددة في وقت واحد دون التأثير على جودة الخدمة؟</label>
-          <textarea name="question_4" required></textarea>
-        </div>
-
-        <div class="form-group">
-          <label>هل لديك خبرة في إدارة المحتوى على منصات السوشيال ميديا مثل فيسبوك، إنستجرام، تويتر؟ كيف يمكن تحسين التفاعل مع العملاء؟</label>
-          <textarea name="question_5" required></textarea>
-        </div>
-
-        <div class="form-group">
-          <label>كيف تتعامل مع المواقف التي تحتاج إلى اتخاذ قرارات سريعة في الرد على استفسارات أو شكاوى العملاء؟</label>
-          <textarea name="question_6" required></textarea>
-        </div>
-
-        <div class="form-group">
-          <label>ما هو رأيك في أهمية لغة التواصل (الكتابة) في التعامل مع العملاء عبر الإنترنت؟</label>
-          <textarea name="question_7" required></textarea>
-        </div>
-
-        <div class="form-group">
-          <label>في حال حدوث خطأ في الطلبات أو الخدمات، كيف تتعامل مع العميل لضمان حل المشكلة بشكل مرضٍ؟</label>
-          <textarea name="question_8" required></textarea>
-        </div>
-
-        <div class="form-group">
-          <label>كيف تقوم بمراقبة التعليقات والتفاعلات على الحسابات الاجتماعية للمطعم وتحديد المحتوى الذي يستدعي تدخل؟</label>
-          <textarea name="question_9" required></textarea>
-        </div>
-
-        <div class="form-group">
-          <label>كيف تضمن التواصل الفعّال مع فريق العمل أو الإدارات الأخرى لحل مشكلات العملاء بسرعة؟</label>
-          <textarea name="question_10" required></textarea>
-        </div>
-
-        <div class="form-group">
-          <label>رفع السيرة الذاتية (اختياري)</label>
-          <input type="file" name="cv_file" accept=".pdf,.doc,.docx" />
-        </div>
-
-        <button class="btn btn-primary" type="submit">إرسال</button>
-      </form>
-    </div>
-  </main>
-  
-  <!-- Footer -->
-  <footer class="home-footer">
-    <div class="footer__inner">
-      <p>© 2026 السلطان أيوب - جميع الحقوق محفوظة</p>
-    </div>
-  </footer>
 </body>
 </html>
